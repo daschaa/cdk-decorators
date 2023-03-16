@@ -7,6 +7,12 @@ import { IConstruct } from 'constructs';
  * If this is used on a class, it will run the aspects on the stack after the stack is created.
  *
  * @param aspect the aspect to add which can be a function or an IAspect
+ * @example
+ * @Aspect((node) => {
+ *   if (node instanceof CfnBucket) {
+ *      node.bucketName = 'my-bucket';
+ *   }
+ * })
  */
 export function Aspect(aspect: ((node: IConstruct) => void) | IAspect): any {
   return function<T extends { new (...args: any[]): Stack }>(ctor: T) {

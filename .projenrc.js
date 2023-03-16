@@ -13,6 +13,10 @@ const project = new typescript.TypeScriptProject({
     'aws-cdk-lib',
     'constructs',
   ],
+  docgen: true,
+  npmignore: [
+    'git-conventional-commits.yaml',
+  ],
   tsconfig: {
     compilerOptions: {
       experimentalDecorators: true,

@@ -7,6 +7,8 @@ import { Stack, Tags } from 'aws-cdk-lib';
  *
  * @param key tag key
  * @param value tag value
+ * @example
+ * @TagWith('my-tag', 'my-value')
  */
 export function TagWith(key: string, value: string): any {
   return function<T extends { new (...args: any[]): Stack }>(ctor: T) {
