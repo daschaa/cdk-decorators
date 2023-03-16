@@ -4,6 +4,14 @@ This is a collection of TypeScript decorators for AWS Cloud Development Kit (CDK
 
 > _Note: This is not an official project from AWS._
 
+## Installation
+
+This library is available on npm/yarn. To install it, run the following command:
+
+```bash
+npm install cdk-decorators
+```
+
 ## Usage
 
 The library provides a set of decorators that can be used to annotate your CDK classes. Here's an example:
