@@ -45,6 +45,12 @@
     "aws-cdk-lib": "^2.69.0",
     "constructs": "^10.1.279"
   },
+  "keywords": [
+    "aws",
+    "cdk",
+    "constructs",
+    "decorators"
+  ],
   "main": "lib/index.js",
   "license": "MIT",
   "version": "0.0.0",
