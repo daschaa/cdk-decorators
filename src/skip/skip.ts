@@ -9,7 +9,9 @@ import { App, Stack } from 'aws-cdk-lib';
  * @example
  * @Skip
  * class StackToSkip extends Stack {
- *  ...
+ *    constructor(scope: any, id: string) {
+ *      super(scope, id);
+ *    }
  * }
  */
 export function Skip(ctor: { new (...args: any[]): Stack }): any {
