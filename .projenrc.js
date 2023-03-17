@@ -76,9 +76,7 @@ project.eslint.addOverride({
 });
 const integrationTestWorkflow = project.github.addWorkflow('pr-test');
 integrationTestWorkflow.on({
-  pullRequest: {
-    types: ['opened', 'synchronize', 'reopened'],
-  },
+  pullRequest: {},
 });
 integrationTestWorkflow.addJob('integration-test', {
   permissions: {
