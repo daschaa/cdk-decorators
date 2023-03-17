@@ -8,7 +8,14 @@ import { Stack, Tags } from 'aws-cdk-lib';
  * @param key tag key
  * @param value tag value
  * @example
+ * ```typescript
  * @TagWith('my-tag', 'my-value')
+ * class MyStack extends Stack {
+ *  constructor(scope: any, id: string) {
+ *   super(scope, id);
+ *  }
+ * }
+ * ```
  */
 export function TagWith(key: string, value: string): any {
   return function<T extends { new (...args: any[]): Stack }>(ctor: T) {
