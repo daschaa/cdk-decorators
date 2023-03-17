@@ -17,6 +17,7 @@ jobs:
           repository: ${{ github.event.pull_request.head.repo.full_name }}
       - name: Install dependencies
         run: yarn install --check-files
-      - run: npx projen build
+      - name: Build
+        run: npx projen build
       - name: Run integration tests
         run: npx projen integ --dry-run
