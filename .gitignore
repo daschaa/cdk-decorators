@@ -31,6 +31,11 @@ jspm_packages/
 .yarn-integrity
 .cache
 .idea
+cdk.out
+src/**/*.js
+test/**/*.js
+src/**/*.d.ts
+test/**/*.d.ts
 !/.projenrc.js
 /test-reports/
 junit.xml
@@ -49,3 +54,4 @@ junit.xml
 /lib
 /dist/
 !/.eslintrc.json
+!/.github/workflows/pr-test.yml

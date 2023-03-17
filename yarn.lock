@@ -25,6 +25,18 @@
   resolved "https://registry.yarnpkg.com/@aws-cdk/asset-node-proxy-agent-v5/-/asset-node-proxy-agent-v5-2.0.86.tgz#1f8ba8f61e46baca5f3e8edfcc09b2433257558f"
   integrity sha512-0Irmv9iKCgZiwgoqr2VvSLJuaEYA1NyxiLmlGKSEq0Kw2RfMoTXX5q8BUZfVjYroqxsyjqcJmCw5Abc34ZBV5A==
 
+"@aws-cdk/integ-runner@^2":
+  version "2.69.0"
+  resolved "https://registry.yarnpkg.com/@aws-cdk/integ-runner/-/integ-runner-2.69.0.tgz#9d0d10fed95c3813860f5066d98c7b383a0d3c98"
+  integrity sha512-7oEy+VYNP4O/fJl+oyXpRkJkm71EfJnNCOX45xQA18sTd7gbgK5xNZXTtnaVMgBMfcUNlcJQHaCBcLtlbIyZRw==
+  dependencies:
+    aws-cdk "2.69.0"
+
+"@aws-cdk/integ-tests-alpha@^2":
+  version "2.69.0-alpha.0"
+  resolved "https://registry.yarnpkg.com/@aws-cdk/integ-tests-alpha/-/integ-tests-alpha-2.69.0-alpha.0.tgz#77c378e3aa9c254cd5e41deb1c54231613f8f6e4"
+  integrity sha512-b3xXl+Rm5zmqdxrFEOPbrg+v5Gy4puGUS1f4Ks0b5fIV5rCicqAye9N2OMQcqgMjFjpVp82ANhxFKChtHMrUYA==
+
 "@babel/code-frame@^7.0.0", "@babel/code-frame@^7.12.13", "@babel/code-frame@^7.18.6":
   version "7.18.6"
   resolved "https://registry.yarnpkg.com/@babel/code-frame/-/code-frame-7.18.6.tgz#3b25d38c89600baa2dcc219edfa88a74eb2c427a"
@@ -1093,6 +1105,13 @@ aws-cdk-lib@^2.69.0:
     semver "^7.3.8"
     yaml "1.10.2"
 
+aws-cdk@2.69.0:
+  version "2.69.0"
+  resolved "https://registry.yarnpkg.com/aws-cdk/-/aws-cdk-2.69.0.tgz#34d698113f614f32746d291d1ed8eab4b2769623"
+  integrity sha512-wsocwG6gFpPq4WZhLc77khuD35qtDuSphV4kquirlPE7wBmXh7XKoC60sRJvz8IHjv5dvqygaoNL4HH2fLonaQ==
+  optionalDependencies:
+    fsevents "2.3.2"
+
 babel-jest@^29.5.0:
   version "29.5.0"
   resolved "https://registry.yarnpkg.com/babel-jest/-/babel-jest-29.5.0.tgz#3fe3ddb109198e78b1c88f9ebdecd5e4fc2f50a5"
@@ -2114,7 +2133,7 @@ fs.realpath@^1.0.0:
   resolved "https://registry.yarnpkg.com/fs.realpath/-/fs.realpath-1.0.0.tgz#1504ad2523158caa40db4a2787cb01411994ea4f"
   integrity sha512-OO0pH2lK6a0hZnAdau5ItzHPI6pUlvI7jMVnxUQRtw4owF2wk8lOSabtGDCTP4Ggrg2MbGnWO9X8K1t4+fGMDw==
 
-fsevents@^2.3.2:
+fsevents@2.3.2, fsevents@^2.3.2:
   version "2.3.2"
   resolved "https://registry.yarnpkg.com/fsevents/-/fsevents-2.3.2.tgz#8a526f78b8fdf4623b709e0b975c52c24c02fd1a"
   integrity sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA==
