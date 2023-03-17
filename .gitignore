@@ -43,7 +43,6 @@ junit.xml
 !/.github/workflows/build.yml
 /dist/changelog.md
 /dist/version.txt
-!/.github/workflows/release.yml
 !/.mergify.yml
 !/.github/dependabot.yml
 !/.github/pull_request_template.md
@@ -54,4 +53,5 @@ junit.xml
 /lib
 /dist/
 !/.eslintrc.json
+!/.github/workflows/docs.yml
 !/.github/workflows/pr-test.yml

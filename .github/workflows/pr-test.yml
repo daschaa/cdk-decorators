@@ -2,11 +2,7 @@
 
 name: pr-test
 on:
-  pull_request:
-    types:
-      - opened
-      - synchronize
-      - reopened
+  pull_request: {}
 jobs:
   integration-test:
     name: Integration Test
@@ -20,10 +16,7 @@ jobs:
           ref: ${{ github.event.pull_request.head.ref }}
           repository: ${{ github.event.pull_request.head.repo.full_name }}
       - name: Install dependencies
-        run:
-          - yarn install --check-files
-      - run:
-          - npx projen build
+        run: yarn install --check-files
+      - run: npx projen build
       - name: Run integration tests
-        run:
-          - npx projen integ --dry-run
+        run: npx projen integ --dry-run
