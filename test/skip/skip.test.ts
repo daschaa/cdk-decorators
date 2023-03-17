@@ -1,9 +1,10 @@
 import { App, Stack } from 'aws-cdk-lib';
-import { Template } from 'aws-cdk-lib/assertions';
 import { Bucket } from 'aws-cdk-lib/aws-s3';
-import { Skip } from '../../src/skip/skip';
+import { Queue } from 'aws-cdk-lib/aws-sqs';
+import { Skip } from '../../lib/skip/skip';
 
 describe('Skip', () => {
+
   @Skip
   // @ts-ignore
   class TestStack extends Stack {
@@ -12,9 +13,45 @@ describe('Skip', () => {
       new Bucket(this, 'MyBucket', {});
     }
   }
+
   test('should skip', () => {
+    // GIVEN
     const app = new App();
-    const testStack = new TestStack(app, 'TestStack');
-    expect(Template.fromStack(testStack).toJSON()).toMatchSnapshot();
+
+    // WHEN
+    new TestStack(app, 'TestStack');
+
+    // THEN
+    expect(app.node.tryFindChild('TestStack')).toBeUndefined();
+  });
+
+  test('should skip nested stacks', () => {
+    const app = new App();
+    class ParentStack extends Stack {
+      constructor(scope: any, id: string) {
+        super(scope, id);
+        new Queue(this, 'MyQueue', {});
+        new TestStack(this, 'TestStack');
+      }
+    }
+    new ParentStack(app, 'ParentStack');
+
+    expect(app.node.tryFindChild('TestStack')).toBeUndefined();
+    expect(app.node.tryFindChild('ParentStack')).toBeDefined();
+  });
+
+  test('should skip nested stacks when scope passed', () => {
+    const app = new App();
+    class ParentStack extends Stack {
+      constructor(scope: any, id: string) {
+        super(scope, id);
+        new Queue(this, 'MyQueue', {});
+        new TestStack(scope, 'TestStack');
+      }
+    }
+    new ParentStack(app, 'ParentStack');
+
+    expect(app.node.tryFindChild('TestStack')).toBeUndefined();
+    expect(app.node.tryFindChild('ParentStack')).toBeDefined();
   });
 });

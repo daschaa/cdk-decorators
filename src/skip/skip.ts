@@ -1,18 +1,28 @@
-import { Stack } from 'aws-cdk-lib';
+import { App, Stack } from 'aws-cdk-lib';
 
 /**
- * Decorator to skip all resources in a stack.
+ * Decorator to skip this stack from the CDK app.
  *
- * If this is used on a class, it will remove all resources from the stack.
- * It's doing this by replacing the stack with an empty stack.
+ * If this is used on a class, it will remove all instances of this stack
+ * from the given CDK app.
  *
  * @example
  * @Skip
+ * class StackToSkip extends Stack {
+ *  ...
+ * }
  */
-export function Skip(_: any): any {
-  class Empty extends Stack {
-    constructor() {
-      super();
+export function Skip(ctor: { new (...args: any[]): Stack }): any {
+  class Empty extends ctor {
+    constructor(...args: any[]) {
+      super(...args);
+      let parent = this.node.scope;
+      while ((parent?.node.scope ?? undefined) !== undefined) {
+        parent = parent?.node.scope;
+      }
+      if (parent instanceof App) {
+        parent.node.tryRemoveChild(this.node.id);
+      }
     }
   }
   return Empty;
