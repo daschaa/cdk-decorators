@@ -14,8 +14,8 @@ const project = new typescript.TypeScriptProject({
     'constructs',
   ],
   devDeps: [
-    '@aws-cdk/integ-tests-alpha@^2',
-    '@aws-cdk/integ-runner@^2',
+    '@aws-cdk/integ-tests-alpha@^2.69.0-alpha.0',
+    '@aws-cdk/integ-runner@^2.69.0',
   ],
   docgen: true,
   npmignore: [

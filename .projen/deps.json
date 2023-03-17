@@ -2,12 +2,12 @@
   "dependencies": [
     {
       "name": "@aws-cdk/integ-runner",
-      "version": "^2",
+      "version": "^2.69.0",
       "type": "build"
     },
     {
       "name": "@aws-cdk/integ-tests-alpha",
-      "version": "^2",
+      "version": "^2.69.0-alpha.0",
       "type": "build"
     },
     {

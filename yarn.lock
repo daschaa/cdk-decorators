@@ -25,14 +25,14 @@
   resolved "https://registry.yarnpkg.com/@aws-cdk/asset-node-proxy-agent-v5/-/asset-node-proxy-agent-v5-2.0.86.tgz#1f8ba8f61e46baca5f3e8edfcc09b2433257558f"
   integrity sha512-0Irmv9iKCgZiwgoqr2VvSLJuaEYA1NyxiLmlGKSEq0Kw2RfMoTXX5q8BUZfVjYroqxsyjqcJmCw5Abc34ZBV5A==
 
-"@aws-cdk/integ-runner@^2":
+"@aws-cdk/integ-runner@^2.69.0":
   version "2.69.0"
   resolved "https://registry.yarnpkg.com/@aws-cdk/integ-runner/-/integ-runner-2.69.0.tgz#9d0d10fed95c3813860f5066d98c7b383a0d3c98"
   integrity sha512-7oEy+VYNP4O/fJl+oyXpRkJkm71EfJnNCOX45xQA18sTd7gbgK5xNZXTtnaVMgBMfcUNlcJQHaCBcLtlbIyZRw==
   dependencies:
     aws-cdk "2.69.0"
 
-"@aws-cdk/integ-tests-alpha@^2":
+"@aws-cdk/integ-tests-alpha@^2.69.0-alpha.0":
   version "2.69.0-alpha.0"
   resolved "https://registry.yarnpkg.com/@aws-cdk/integ-tests-alpha/-/integ-tests-alpha-2.69.0-alpha.0.tgz#77c378e3aa9c254cd5e41deb1c54231613f8f6e4"
   integrity sha512-b3xXl+Rm5zmqdxrFEOPbrg+v5Gy4puGUS1f4Ks0b5fIV5rCicqAye9N2OMQcqgMjFjpVp82ANhxFKChtHMrUYA==
