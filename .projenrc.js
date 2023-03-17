@@ -6,6 +6,7 @@ const project = new typescript.TypeScriptProject({
   authorEmail: 'josh@joshuaw.de',
   authorName: 'Joshua Weber',
   authorUrl: 'https://github.com/daschaa',
+  bugsUrl: 'https://github.com/daschaa/cdk-decorators/issues',
   projectType: 'library',
   description: 'A collection of decorators for the AWS CDK',
   license: 'MIT',
@@ -50,10 +51,6 @@ const project = new typescript.TypeScriptProject({
   releaseTrigger: ReleaseTrigger.manual({
     changelog: true,
   }),
-  // deps: [],                /* Runtime dependencies of this module. */
-  // description: undefined,  /* The description is just a string that helps people understand the purpose of the package. */
-  // devDeps: [],             /* Build dependencies for this module. */
-  // packageName: undefined,  /* The "name" in package.json. */
 });
 project.addTask('integ', {
   receiveArgs: true,
@@ -74,6 +71,77 @@ project.eslint.addOverride({
     'import/no-extraneous-dependencies': 'off',
   },
 });
+
+const docsWorkflow = project.github.addWorkflow('docs', {
+  permissions: {
+    contents: 'read',
+    pages: 'write',
+    idToken: 'write',
+  },
+  concurrency: {
+    group: 'pages',
+    cancelInProgress: false,
+  },
+});
+
+docsWorkflow.on({
+  release: {
+    types: ['published'],
+  },
+  workflowDispatch: {},
+});
+
+docsWorkflow.addJob('docs', {
+  concurrency: {
+    'group': 'pages',
+    'cancel-in-progress': false,
+  },
+  permissions: {
+    contents: 'read',
+    pages: 'write',
+    idToken: 'write',
+  },
+  environment: {
+    name: 'github-pages',
+    url: '${{ steps.deployment.outputs.page_url }}',
+  },
+  runsOn: 'ubuntu-latest',
+  steps: [
+    {
+      name: 'Checkout',
+      uses: 'actions/checkout@v3',
+    },
+    {
+      name: 'Install dependencies',
+      run: [
+        'yarn install --check-files',
+      ],
+    },
+    {
+      Name: 'Build',
+      run: [
+        'npx projen build',
+      ],
+    },
+    {
+      name: 'Setup Pages',
+      uses: 'actions/configure-pages@v3',
+    },
+    {
+      name: 'Upload artifact',
+      uses: 'actions/upload-pages-artifact@v1',
+      with: {
+        path: 'docs',
+      },
+    },
+    {
+      name: 'Deploy to GitHub Pages',
+      id: 'deployment',
+      uses: 'actions/deploy-pages@v1',
+    },
+  ],
+});
+
 const integrationTestWorkflow = project.github.addWorkflow('pr-test');
 integrationTestWorkflow.on({
   pullRequest: {},
