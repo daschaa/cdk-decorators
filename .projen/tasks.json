@@ -139,6 +139,19 @@
         }
       ]
     },
+    "integ": {
+      "name": "integ",
+      "description": "Runs integration tests",
+      "steps": [
+        {
+          "exec": "tsc --project tsconfig.dev.json"
+        },
+        {
+          "exec": "integ-runner",
+          "receiveArgs": true
+        }
+      ]
+    },
     "package": {
       "name": "package",
       "description": "Creates the distribution package",

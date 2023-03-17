@@ -13,6 +13,10 @@ const project = new typescript.TypeScriptProject({
     'aws-cdk-lib',
     'constructs',
   ],
+  devDeps: [
+    '@aws-cdk/integ-tests-alpha@^2.69.0-alpha.0',
+    '@aws-cdk/integ-runner@^2.69.0',
+  ],
   docgen: true,
   npmignore: [
     'git-conventional-commits.yaml',
@@ -24,11 +28,19 @@ const project = new typescript.TypeScriptProject({
   },
   tsconfigDev: {
     compilerOptions: {
+      rootDir: '.',
+      outDir: '.',
       experimentalDecorators: true,
     },
+    include: ['**/*.ts'], // all typescript files recursively
   },
   gitignore: [
     '.idea',
+    'cdk.out',
+    'src/**/*.js',
+    'test/**/*.js',
+    'src/**/*.d.ts',
+    'test/**/*.d.ts',
   ],
   release: true,
   majorVersion: 1,
@@ -39,10 +51,64 @@ const project = new typescript.TypeScriptProject({
   // devDeps: [],             /* Build dependencies for this module. */
   // packageName: undefined,  /* The "name" in package.json. */
 });
+project.addTask('integ', {
+  receiveArgs: true,
+  description: 'Runs integration tests',
+  steps: [
+    {
+      exec: 'tsc --project tsconfig.dev.json',
+    },
+    {
+      exec: 'integ-runner',
+      receiveArgs: true,
+    },
+  ],
+});
 project.eslint.addOverride({
   files: ['test/**/*.ts'],
   rules: {
     'import/no-extraneous-dependencies': 'off',
   },
+});
+const integrationTestWorkflow = project.github.addWorkflow('pr-test');
+integrationTestWorkflow.on({
+  pullRequest: {
+    types: ['opened', 'synchronize', 'reopened'],
+  },
+});
+integrationTestWorkflow.addJob('integration-test', {
+  permissions: {
+    contents: 'read',
+  },
+  name: 'Integration Test',
+  runsOn: 'ubuntu-latest',
+  steps: [
+    {
+      name: 'Checkout',
+      uses: 'actions/checkout@v3',
+      with: {
+        ref: '${{ github.event.pull_request.head.ref }}',
+        repository: '${{ github.event.pull_request.head.repo.full_name }}',
+      },
+    },
+    {
+      name: 'Install dependencies',
+      run: [
+        'yarn install --check-files',
+      ],
+    },
+    {
+      Name: 'Build',
+      run: [
+        'npx projen build',
+      ],
+    },
+    {
+      name: 'Run integration tests',
+      run: [
+        'npx projen integ --dry-run',
+      ],
+    },
+  ],
 });
 project.synth();
