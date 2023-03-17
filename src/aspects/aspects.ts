@@ -8,11 +8,18 @@ import { IConstruct } from 'constructs';
  *
  * @param aspect the aspect to add which can be a function or an IAspect
  * @example
+ * ```typescript
  * @Aspect((node) => {
  *   if (node instanceof CfnBucket) {
  *      node.bucketName = 'my-bucket';
  *   }
  * })
+ * class MyStack extends Stack {
+ *  constructor(scope: any, id: string) {
+ *     super(scope, id);
+ *   }
+ * }
+ * ```
  */
 export function Aspect(aspect: ((node: IConstruct) => void) | IAspect): any {
   return function<T extends { new (...args: any[]): Stack }>(ctor: T) {
