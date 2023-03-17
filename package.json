@@ -10,9 +10,11 @@
     "docgen": "npx projen docgen",
     "eject": "npx projen eject",
     "eslint": "npx projen eslint",
+    "integ": "npx projen integ",
     "package": "npx projen package",
     "post-compile": "npx projen post-compile",
     "pre-compile": "npx projen pre-compile",
+    "publish:git": "npx projen publish:git",
     "release": "npx projen release",
     "test": "npx projen test",
     "test:watch": "npx projen test:watch",
@@ -27,6 +29,8 @@
     "organization": false
   },
   "devDependencies": {
+    "@aws-cdk/integ-runner": "^2.69.0",
+    "@aws-cdk/integ-tests-alpha": "^2.69.0-alpha.0",
     "@types/jest": "^29.4.4",
     "@types/node": "^14",
     "@typescript-eslint/eslint-plugin": "^5",
@@ -56,6 +60,9 @@
   "main": "lib/index.js",
   "license": "MIT",
   "version": "0.0.0",
+  "bugs": {
+    "url": "https://github.com/daschaa/cdk-decorators/issues"
+  },
   "jest": {
     "testMatch": [
       "<rootDir>/src/**/__tests__/**/*.ts?(x)",
