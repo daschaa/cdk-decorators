@@ -53,4 +53,5 @@ junit.xml
 /lib
 /dist/
 !/.eslintrc.json
+!/.github/workflows/docs.yml
 !/.github/workflows/pr-test.yml
