@@ -23,10 +23,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Install dependencies
-        run:
-          - yarn install --check-files
-      - run:
-          - npx projen build
+        run: yarn install --check-files
+      - run: npx projen build
       - name: Setup Pages
         uses: actions/configure-pages@v3
       - name: Upload artifact

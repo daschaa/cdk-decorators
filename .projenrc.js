@@ -113,15 +113,11 @@ docsWorkflow.addJob('docs', {
     },
     {
       name: 'Install dependencies',
-      run: [
-        'yarn install --check-files',
-      ],
+      run: 'yarn install --check-files',
     },
     {
       Name: 'Build',
-      run: [
-        'npx projen build',
-      ],
+      run: 'npx projen build',
     },
     {
       name: 'Setup Pages',
@@ -163,21 +159,15 @@ integrationTestWorkflow.addJob('integration-test', {
     },
     {
       name: 'Install dependencies',
-      run: [
-        'yarn install --check-files',
-      ],
+      run: 'yarn install --check-files',
     },
     {
       Name: 'Build',
-      run: [
-        'npx projen build',
-      ],
+      run: 'npx projen build',
     },
     {
       name: 'Run integration tests',
-      run: [
-        'npx projen integ --dry-run',
-      ],
+      run: 'npx projen integ --dry-run',
     },
   ],
 });
