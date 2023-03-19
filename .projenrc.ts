@@ -45,13 +45,15 @@ const project = new typescript.TypeScriptProject({
     'test/**/*.js',
     'src/**/*.d.ts',
     'test/**/*.d.ts',
+    '.projenrc.d.ts',
+    '.projenrc.js',
   ],
   release: true,
   majorVersion: 1,
   keywords: ['aws', 'cdk', 'decorators', 'constructs'],
   releaseToNpm: true,
-  releaseTrigger: ReleaseTrigger.manual({
-    changelog: true,
+  releaseTrigger: ReleaseTrigger.scheduled({
+    schedule: '30 8 * * *',
   }),
   projenrcTs: true,
 } as TypeScriptProjectOptions);

@@ -77,6 +77,27 @@ class TestStack extends Stack {
 }
 ```
 
+### `TriggerAfter`
+
+Triggers a lambda function after the stack has been deployed.
+
+```typescript
+@TriggerAfter({
+  code: Code.fromInline(`
+      exports.handler = async (event) => {
+        console.log('event: ', event)
+      };
+    `),
+  handler: 'index.handler',
+  runtime: Runtime.NODEJS_14_X,
+})
+class TestStack extends Stack {
+  constructor(scope: any, id: string) {
+    super(scope, id);
+  }
+}
+```
+
 ### Contributing 
 
 Contributions are welcome! If you find a bug or have an idea for a new feature, feel free to open an issue or submit a pull request.

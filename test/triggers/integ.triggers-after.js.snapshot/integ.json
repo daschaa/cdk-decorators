@@ -1,0 +1,12 @@
+{
+  "version": "31.0.0",
+  "testCases": {
+    "integ-test-triggers-before/DefaultTest": {
+      "stacks": [
+        "TestStack"
+      ],
+      "assertionStack": "integ-test-triggers-before/DefaultTest/DeployAssert",
+      "assertionStackName": "integtesttriggersbeforeDefaultTestDeployAssert51D28EB7"
+    }
+  }
+}
