@@ -69,6 +69,10 @@
       "type": "build"
     },
     {
+      "name": "ts-node",
+      "type": "build"
+    },
+    {
       "name": "typedoc",
       "type": "build"
     },

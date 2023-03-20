@@ -1,5 +1,8 @@
 # 📎TypeScript Decorators for AWS CDK
 
+[![npm version](https://badge.fury.io/js/cdk-decorators.svg)](https://www.npmjs.com/package/cdk-decorators)
+[![docs](https://img.shields.io/badge/docs-here-informational)](https://daschaa.github.io/cdk-decorators/)
+
 This is a collection of TypeScript decorators for AWS Cloud Development Kit (CDK) that aims to make the code more aesthetically pleasing.
 
 > _Note: This is not an official project from AWS._
@@ -73,6 +76,27 @@ class TestStack extends Stack {
   constructor(scope: any, id: string) {
     super(scope, id);
     new Bucket(this, 'MyBucket', {});
+  }
+}
+```
+
+### `TriggerAfter`
+
+Triggers a lambda function after the stack has been deployed.
+
+```typescript
+@TriggerAfter({
+  code: Code.fromInline(`
+      exports.handler = async (event) => {
+        console.log('event: ', event)
+      };
+    `),
+  handler: 'index.handler',
+  runtime: Runtime.NODEJS_14_X,
+})
+class TestStack extends Stack {
+  constructor(scope: any, id: string) {
+    super(scope, id);
   }
 }
 ```

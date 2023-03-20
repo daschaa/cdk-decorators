@@ -36,6 +36,8 @@ src/**/*.js
 test/**/*.js
 src/**/*.d.ts
 test/**/*.d.ts
+.projenrc.d.ts
+.projenrc.js
 !/.projenrc.js
 /test-reports/
 junit.xml
@@ -43,6 +45,7 @@ junit.xml
 !/.github/workflows/build.yml
 /dist/changelog.md
 /dist/version.txt
+!/.github/workflows/release.yml
 !/.mergify.yml
 !/.github/dependabot.yml
 !/.github/pull_request_template.md

@@ -31,7 +31,9 @@
     ".projenrc.js",
     "src/**/*.ts",
     "test/**/*.ts",
-    "**/*.ts"
+    "**/*.ts",
+    ".projenrc.ts",
+    "projenrc/**/*.ts"
   ],
   "exclude": [
     "node_modules"

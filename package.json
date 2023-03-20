@@ -14,7 +14,6 @@
     "package": "npx projen package",
     "post-compile": "npx projen post-compile",
     "pre-compile": "npx projen pre-compile",
-    "publish:git": "npx projen publish:git",
     "release": "npx projen release",
     "test": "npx projen test",
     "test:watch": "npx projen test:watch",
@@ -44,6 +43,7 @@
     "projen": "^0.68.5",
     "standard-version": "^9",
     "ts-jest": "^29.0.5",
+    "ts-node": "^10.9.1",
     "typedoc": "^0.23.27",
     "typescript": "^4.9.5"
   },
