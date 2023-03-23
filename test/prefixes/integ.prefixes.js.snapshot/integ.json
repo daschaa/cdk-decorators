@@ -1,0 +1,12 @@
+{
+  "version": "31.0.0",
+  "testCases": {
+    "prefix-integ-test/DefaultTest": {
+      "stacks": [
+        "TestStack"
+      ],
+      "assertionStack": "prefix-integ-test/DefaultTest/DeployAssert",
+      "assertionStackName": "prefixintegtestDefaultTestDeployAssertD4753F5F"
+    }
+  }
+}

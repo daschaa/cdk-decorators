@@ -100,6 +100,20 @@ class TestStack extends Stack {
 }
 ```
 
+### `PrefixWith`
+
+Prefixes all the resources in the stack with the specified string.
+
+```typescript
+@PrefixWith('MyPrefix')
+class TestStack extends Stack {
+  constructor(scope: any, id: string) {
+    super(scope, id);
+    new Bucket(this, 'Bucket', {});
+  }
+}
+```
+
 ### Contributing 
 
 Contributions are welcome! If you find a bug or have an idea for a new feature, feel free to open an issue or submit a pull request.
