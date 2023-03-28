@@ -88,7 +88,7 @@ function createDocumentationWorkflow() {
 
   docsWorkflow.on({
     release: {
-      types: ['published'],
+      types: ['published', 'created'],
     },
     workflowDispatch: {},
   });
