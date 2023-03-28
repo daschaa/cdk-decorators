@@ -55,6 +55,8 @@ const project = new typescript.TypeScriptProject({
   releaseTrigger: ReleaseTrigger.scheduled({
     schedule: '30 8 * * *',
   }),
+  codeCov: true,
+  codeCovTokenSecret: 'CODECOV_TOKEN',
   projenrcTs: true,
 } as TypeScriptProjectOptions);
 project.addTask('integ', {
