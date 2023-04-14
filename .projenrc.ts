@@ -58,6 +58,28 @@ const project = new typescript.TypeScriptProject({
   codeCov: true,
   codeCovTokenSecret: 'CODECOV_TOKEN',
   projenrcTs: true,
+  githubOptions: {
+    mergify: true,
+    mergifyOptions: {
+      rules: [
+        {
+          name: 'automatic merge for Dependabot pull requests',
+          conditions: [
+            'author=dependabot[bot]',
+          ],
+          actions: {
+            review: {
+              type: 'APPROVE',
+              message: 'Automatically approving dependabot',
+            },
+            merge: {
+              method: 'merge',
+            },
+          },
+        },
+      ],
+    },
+  },
 } as TypeScriptProjectOptions);
 project.addTask('integ', {
   receiveArgs: true,
