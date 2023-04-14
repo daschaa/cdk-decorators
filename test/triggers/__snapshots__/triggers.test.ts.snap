@@ -19,7 +19,7 @@ exports[`TriggerAfter creates trigger for stack 1`] = `
           "S3Bucket": {
             "Fn::Sub": "cdk-hnb659fds-assets-\${AWS::AccountId}-\${AWS::Region}",
           },
-          "S3Key": "fd4ae44810153bccde8a320d4b4fc240cedcbef58d7cf322707ea2a46f7c0150.zip",
+          "S3Key": "e6b302aaee9bb5261338cf6b21e540e805eeaf2c18eb3246f7556104f361f68d.zip",
         },
         "Handler": "__entrypoint__.handler",
         "MemorySize": 128,
@@ -169,12 +169,14 @@ exports[`TriggerAfter creates trigger for stack 1`] = `
         "HandlerArn": {
           "Ref": "TriggerAfterCurrentVersionA734A45098bc03cc66e4ce19e66e864fe987b728",
         },
+        "InvocationType": "RequestResponse",
         "ServiceToken": {
           "Fn::GetAtt": [
             "AWSCDKTriggerCustomResourceProviderCustomResourceProviderHandler97BECD91",
             "Arn",
           ],
         },
+        "Timeout": "120000",
       },
       "Type": "Custom::Trigger",
       "UpdateReplacePolicy": "Delete",
