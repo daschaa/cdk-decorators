@@ -1182,9 +1182,9 @@ available-typed-arrays@^1.0.5:
   integrity sha512-DMD0KiN46eipeziST1LPP/STfDU0sufISXmjSgvVsoU2tqxctQeASejWcfNtxYKqETM1UxQ8sp2OrSBWpHY6sw==
 
 aws-cdk-lib@^2.74.0:
-  version "2.74.0"
-  resolved "https://registry.yarnpkg.com/aws-cdk-lib/-/aws-cdk-lib-2.74.0.tgz#dce596bb3c54d8895e7870032ac00b82c1db2259"
-  integrity sha512-cPoYEVmJ06pi57q4uW2v/dwXvkr9JHDeSd4+ylBALccbYiRPlZw0OiNH+F2B+hrDVAiaYZWV3HE8hVDDON4+ZA==
+  version "2.75.0"
+  resolved "https://registry.yarnpkg.com/aws-cdk-lib/-/aws-cdk-lib-2.75.0.tgz#d9c230126fc803b4c68a7e6c65558af3e458bccc"
+  integrity sha512-lFMrRJPt5TDRm4PGllo0aFcSi8nHzs0mZbYUF/lnMc15ORroV8Iv38U1I0CHiZwWO/QtLuxIzEXWA5hSbgpKzw==
   dependencies:
     "@aws-cdk/asset-awscli-v1" "^2.2.97"
     "@aws-cdk/asset-kubectl-v20" "^2.1.1"
@@ -1484,9 +1484,9 @@ concat-stream@^2.0.0:
     typedarray "^0.0.6"
 
 constructs@^10.1.279:
-  version "10.1.313"
-  resolved "https://registry.yarnpkg.com/constructs/-/constructs-10.1.313.tgz#faa59fa14044e6ad0b2aaa2f0758117a159013df"
-  integrity sha512-O/koKidDn8A1j1MWs7M1P27GszzvYFTD935/hG7FaWvDghOTp+0aZZ6ZPWPV9vuAiHW4E+TAbX/DN3oXYwhnvg==
+  version "10.1.314"
+  resolved "https://registry.yarnpkg.com/constructs/-/constructs-10.1.314.tgz#2e60563d38bfdd38dd0e707ff0bd90c93bbc73a0"
+  integrity sha512-wqQn0tuwYmj7tl/nSfnlw/1uaBcFDhjSe6UMVvxwGwXyAg/ZUqpiWFbrojxPqDOAQPCNEj8LjL7IH1SPioa6kg==
 
 conventional-changelog-angular@^5.0.12:
   version "5.0.13"
