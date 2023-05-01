@@ -1450,9 +1450,9 @@ concat-stream@^2.0.0:
     typedarray "^0.0.6"
 
 constructs@^10.1.279:
-  version "10.2.9"
-  resolved "https://registry.yarnpkg.com/constructs/-/constructs-10.2.9.tgz#fd8c035e21a8787f52f897c60db2095af80646bf"
-  integrity sha512-0cv/d46sdxNuGBvZfCKBRQ5/iFdmqNZMvhh5F3j+M4mdqJryKsEmV0Bd490gQjLxb8gy+F/Pne0oCXzs9E3bIw==
+  version "10.2.12"
+  resolved "https://registry.yarnpkg.com/constructs/-/constructs-10.2.12.tgz#5209852dd13be17f33ea3200c775578e2981e948"
+  integrity sha512-aBX/fxAgJgZaX2SL6rdUap8UIWAY1lv6xK/stB1EJ3TFpSEDApd6ZCG40hvK/243H13m0MilvCrmyfyKTdiPlQ==
 
 conventional-changelog-angular@^5.0.12:
   version "5.0.13"
